@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		369EB3EE1D81C20B00B192E9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369EB3ED1D81C20B00B192E9 /* main.swift */; };
+		369EB4051D81EFDC00B192E9 /* libdero_clib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 369EB4041D81EFDC00B192E9 /* libdero_clib.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		369EB3EA1D81C20B00B192E9 /* Dero */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Dero; sourceTree = BUILT_PRODUCTS_DIR; };
 		369EB3ED1D81C20B00B192E9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		369EB4031D81EFDC00B192E9 /* dero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dero.h; sourceTree = "<group>"; };
+		369EB4041D81EFDC00B192E9 /* libdero_clib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libdero_clib.dylib; sourceTree = "<group>"; };
+		369EB4071D81F27F00B192E9 /* Dero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dero-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369EB4051D81EFDC00B192E9 /* libdero_clib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +48,7 @@
 			children = (
 				369EB3EC1D81C20B00B192E9 /* Dero */,
 				369EB3EB1D81C20B00B192E9 /* Products */,
+				369EB3F41D81C93E00B192E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +63,19 @@
 		369EB3EC1D81C20B00B192E9 /* Dero */ = {
 			isa = PBXGroup;
 			children = (
+				369EB4031D81EFDC00B192E9 /* dero.h */,
+				369EB4041D81EFDC00B192E9 /* libdero_clib.dylib */,
 				369EB3ED1D81C20B00B192E9 /* main.swift */,
+				369EB4071D81F27F00B192E9 /* Dero-Bridging-Header.h */,
 			);
 			path = Dero;
+			sourceTree = "<group>";
+		};
+		369EB3F41D81C93E00B192E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +110,7 @@
 				TargetAttributes = {
 					369EB3E91D81C20B00B192E9 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -218,7 +235,17 @@
 		369EB3F21D81C20B00B192E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dero",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dero/Dero-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -226,7 +253,16 @@
 		369EB3F31D81C20B00B192E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dero",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Dero/Dero-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
